@@ -26,7 +26,7 @@ function getDNSStats(domains) {
   let stats = {};
   
   for (domain of domains) {
-    let  parts = domain.split('.').reverse();
+    let parts = domain.split('.').reverse();
     let dns = '';
     for (part of parts) {
       dns += `.${part}`;
