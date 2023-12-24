@@ -26,15 +26,11 @@ function getDNSStats(domains) {
   let stats = {};
   
   for (domain of domains) {
-    let parts = domain.split('.').reverse();
+    let partsReversed = domain.split('.').reverse();
     let dns = '';
-    for (part of parts) {
-      dns += `.${part}`;
-      if (stats[dns]) {
-        stats[dns]++
-      } else {
-        stats[dns] = 1;
-      }
+    for (part of partsReversed) {
+      dns += '.' + part;
+      stats[dns] = stats[dns] !== undefined ? stats[dns] + 1 : 1;
     }
   }
   return stats;
